@@ -16,7 +16,7 @@ public class Run
 
     System.out.println(org.apache.xerces.impl.dtd.models.CMStateSet.class.getResource("CMStateSet.class"));
 
-    SchemaFactory factory = SchemaFactory.newInstance(xsdVersions[0]);
+    SchemaFactory factory = SchemaFactory.newInstance(xsdVersions[1]);
     Schema schema = factory.newSchema(new StreamSource(xsd));
     Validator validator = schema.newValidator();
 

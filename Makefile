@@ -1,5 +1,5 @@
-SRC := src/main/java
-BIN := build/classes/java/main
+SRC := src
+BIN := bin
 LIB := lib
 
 XSD := $(wildcard *.xsd)
@@ -17,4 +17,4 @@ $(RUN): compile
 	java -cp $(BIN):$(CP) Run $(subst run-,,$@)
 
 clean:
-	$(RM) -r bin/
+	$(RM) -r $(BIN)
