@@ -1,0 +1,15 @@
+plugins {
+  id 'application'
+}
+
+repositories {
+    mavenCentral() 
+}
+
+application {
+  mainClass = 'Run'
+}
+
+dependencies {
+  implementation 'xerces:xercesImpl:2.12.1'
+}

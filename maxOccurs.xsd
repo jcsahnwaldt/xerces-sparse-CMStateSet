@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="X">
+		<xs:complexType>
+			<xs:choice maxOccurs="5000">
+				<xs:element name="a" type="xs:string" />
+				<xs:element name="b" type="xs:string" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
