@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<project name="xerces-sparse-CMStateSet" basedir="." default="run">
+
+  <property name="src" location="src"/>
+  <property name="bin" location="bin"/>
+  <property name="lib" location="lib"/>
+
+  <target name="init">
+    <mkdir dir="${bin}"/>
+  </target>
+
+  <target name="compile" depends="init">
+    <javac srcdir="${src}" destdir="${bin}" includeantruntime="false"/>
+  </target>
+
+  <target name="run" depends="run-original, run-sparse"/>
+
+  <target name="run-original" depends="compile">
+    <java classname="Run">
+      <classpath>
+        <fileset dir="${lib}" includes="*.jar"/>
+        <pathelement location="${bin}"/>
+      </classpath>
+    </java>
+  </target>
+
+  <target name="run-sparse" depends="compile">
+    <java classname="Run">
+      <classpath>
+        <pathelement location="${bin}"/>
+        <fileset dir="${lib}" includes="*.jar"/>
+      </classpath>
+    </java>
+  </target>
+
+  <target name="clean">
+    <delete dir="${bin}"/>
+  </target>
+
+</project>
