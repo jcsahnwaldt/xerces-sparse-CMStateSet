@@ -8,7 +8,7 @@ JARS := $(wildcard $(LIB)/*.jar)
 CP := $(subst $() $(),:,$(JARS))
 
 compile:
-	javac -d $(BIN) $(SRC)/org/apache/xerces/impl/dtd/models/CMStateSet.java $(SRC)/Run.java
+	javac -d $(BIN) -sourcepath $(SRC) $(SRC)/Run.java
 
 $(RUN): compile
 	@echo With original CMStateSet:
