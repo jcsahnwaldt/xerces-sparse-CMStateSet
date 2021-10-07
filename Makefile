@@ -6,16 +6,12 @@ XSD := $(wildcard *.xsd)
 RUN := $(addprefix run-,$(XSD))
 
 run: compile
-	@echo With original CMStateSet:
 	java -cp "$(LIB)/*:$(BIN)" Run
-	@echo With sparse CMStateSet:
 	java -cp "$(BIN):$(LIB)/*" Run
 
-$(RUN): compile
-	@echo With original CMStateSet:
-	java -cp "$(LIB)/*:$(BIN)" Run $(subst run-,,$@)
-	@echo With sparse CMStateSet:
-	java -cp "$(BIN):$(LIB)/*" Run $(subst run-,,$@)
+$(RUN): run-%: % compile
+	java -cp "$(LIB)/*:$(BIN)" Run $<
+	java -cp "$(BIN):$(LIB)/*" Run $<
 
 compile:
 	javac -d $(BIN) -sourcepath $(SRC) $(SRC)/Run.java
