@@ -1,6 +1,8 @@
 # xerces-sparse-CMStateSet
 
-See https://issues.apache.org/jira/browse/XERCESJ-1227.
+Trying to speed up very slow XSD validation in Xerces by using a sparse array in [CMStateSet.java](http://svn.apache.org/viewvc/xerces/java/trunk/src/org/apache/xerces/impl/dtd/models/CMStateSet.java?view=markup). See https://issues.apache.org/jira/browse/XERCESJ-1227.
+
+Result: In some cases, the sparse array makes validation much faster. In other cases, validation gets much, much slower. :-(
 
 The JARs in the [lib](lib) folder are from [Xerces-J-bin.2.12.1-xml-schema-1.1.zip](https://dlcdn.apache.org//xerces/j/binaries/Xerces-J-bin.2.12.1-xml-schema-1.1.zip). See https://xerces.apache.org/mirrors.cgi#binary
 
