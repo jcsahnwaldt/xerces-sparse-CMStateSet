@@ -9,16 +9,22 @@ The JARs in the [lib](lib) folder are from [Xerces-J-bin.2.12.1-xml-schema-1.1.z
 ```
 $ make
 ...
-With original CMStateSet:
 java -cp "lib/*:bin" Run
-loading CMStateSet.class from jar:file:/.../lib/xercesImpl-2.12.1-xml-schema-1.1.jar!/org/apache/xerces/impl/dtd/models/CMStateSet.class
-validating test.xml with maxOccurs.xsd
-7903.043619 millis
-With sparse CMStateSet:
+loading CMStateSet.class from lib/xercesImpl-2.12.1-xml-schema-1.1.jar
+validating test.xml with test-choice-assert.xsd
+181.231399 millis
+validating test.xml with test-choice.xsd
+7002.531686 millis
+validating test.xml with test-sequence.xsd
+584.140115 millis
 java -cp "bin:lib/*" Run
-loading CMStateSet.class from file:/.../bin/org/apache/xerces/impl/dtd/models/CMStateSet.class
-validating test.xml with maxOccurs.xsd
-1639.523698 millis
+loading CMStateSet.class from bin/
+validating test.xml with test-choice-assert.xsd
+186.559359 millis
+validating test.xml with test-choice.xsd
+1637.605094 millis
+validating test.xml with test-sequence.xsd
+7996.99605 millis
 ```
 
 ## Run with Ant
@@ -27,12 +33,20 @@ validating test.xml with maxOccurs.xsd
 $ ant
 ...
 run-original:
-     [java] loading CMStateSet.class from jar:file:/.../lib/xercesImpl-2.12.1-xml-schema-1.1.jar!/org/apache/xerces/impl/dtd/models/CMStateSet.class
-     [java] validating test.xml with maxOccurs.xsd
-     [java] 7580.454783 millis
+     [java] loading CMStateSet.class from lib/xercesImpl-2.12.1-xml-schema-1.1.jar
+     [java] validating test.xml with test-choice-assert.xsd
+     [java] 184.118067 millis
+     [java] validating test.xml with test-choice.xsd
+     [java] 6943.449682 millis
+     [java] validating test.xml with test-sequence.xsd
+     [java] 582.964042 millis
 
 run-sparse:
-     [java] loading CMStateSet.class from file:/.../bin/org/apache/xerces/impl/dtd/models/CMStateSet.class
-     [java] validating test.xml with maxOccurs.xsd
-     [java] 1714.335978 millis
+     [java] loading CMStateSet.class from bin/
+     [java] validating test.xml with test-choice-assert.xsd
+     [java] 192.949404 millis
+     [java] validating test.xml with test-choice.xsd
+     [java] 1618.323769 millis
+     [java] validating test.xml with test-sequence.xsd
+     [java] 7896.70078 millis
 ```
