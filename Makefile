@@ -3,18 +3,19 @@ BIN := bin
 LIB := lib
 
 XSD := $(wildcard *.xsd)
-RUN := $(addprefix run-,$(XSD))
 
-run: compile
+all: $(BIN)/Run.class
 	java -cp "$(LIB)/*:$(BIN)" Run
 	java -cp "$(BIN):$(LIB)/*" Run
 
-$(RUN): run-%: % compile
-	java -cp "$(LIB)/*:$(BIN)" Run $<
-	java -cp "$(BIN):$(LIB)/*" Run $<
+$(XSD): $(BIN)/Run.class
+	java -cp "$(LIB)/*:$(BIN)" Run $@
+	java -cp "$(BIN):$(LIB)/*" Run $@
 
-compile:
-	javac -d $(BIN) -sourcepath $(SRC) $(SRC)/Run.java
+.PHONY: $(XSD)
+
+$(BIN)/Run.class: $(SRC)/Run.java
+	javac -d $(BIN) -sourcepath $(SRC) $<
 
 clean:
 	$(RM) -r $(BIN)
