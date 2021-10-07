@@ -6,7 +6,7 @@
 				<xs:element name="a" type="xs:string" />
 				<xs:element name="b" type="xs:string" />
 			</xs:choice>
-			<xs:assert test="count(*) le 5000" />
+			<xs:assert test="count(*) le 4000" />
 		</xs:complexType>
 	</xs:element>
 </xs:schema>
