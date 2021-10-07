@@ -16,12 +16,13 @@ public class Run
     String xsd = args.length > 0 ? args[0] : xsds[0];
     String xml = args.length > 1 ? args[1] : xmls[0];
 
-    System.out.println(CMStateSet.class.getResource("CMStateSet.class"));
+    System.out.println("loading CMStateSet.class from "+CMStateSet.class.getResource("CMStateSet.class"));
 
     SchemaFactory factory = SchemaFactory.newInstance(xsdVersions[1]);
     Schema schema = factory.newSchema(new StreamSource(xsd));
     Validator validator = schema.newValidator();
 
+    System.out.println("validating "+xml+" with "+xsd);
     long nanos = System.nanoTime();
     validator.validate(new StreamSource(xml));
     nanos = System.nanoTime() - nanos;
