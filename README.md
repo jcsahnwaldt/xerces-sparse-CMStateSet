@@ -8,45 +8,57 @@ The JARs in the [lib](lib) folder are from [Xerces-J-bin.2.12.1-xml-schema-1.1.z
 
 ```
 $ make
-...
 java -cp "lib/*:bin" Run
 loading CMStateSet.class from lib/xercesImpl-2.12.1-xml-schema-1.1.jar
 validating test.xml with test-choice-assert.xsd
-181.231399 millis
+181.172242 millis
 validating test.xml with test-choice.xsd
-7002.531686 millis
+3503.313348 millis
 validating test.xml with test-sequence.xsd
-584.140115 millis
+600.648175 millis
 java -cp "bin:lib/*" Run
 loading CMStateSet.class from bin/
 validating test.xml with test-choice-assert.xsd
-186.559359 millis
+183.619571 millis
 validating test.xml with test-choice.xsd
-1637.605094 millis
+1145.443214 millis
 validating test.xml with test-sequence.xsd
-7996.99605 millis
+3319.136173 millis
+```
+
+## Run specific XSD file with make
+
+```
+$ make test-sequence.xsd 
+java -cp "lib/*:bin" Run test-sequence.xsd
+loading CMStateSet.class from lib/xercesImpl-2.12.1-xml-schema-1.1.jar
+validating test.xml with test-sequence.xsd
+506.817063 millis
+java -cp "bin:lib/*" Run test-sequence.xsd
+loading CMStateSet.class from bin/
+validating test.xml with test-sequence.xsd
+3178.244942 millis
 ```
 
 ## Run with Ant
 
 ```
 $ ant
-...
 run-original:
      [java] loading CMStateSet.class from lib/xercesImpl-2.12.1-xml-schema-1.1.jar
      [java] validating test.xml with test-choice-assert.xsd
-     [java] 184.118067 millis
+     [java] 178.647753 millis
      [java] validating test.xml with test-choice.xsd
-     [java] 6943.449682 millis
+     [java] 3475.774853 millis
      [java] validating test.xml with test-sequence.xsd
-     [java] 582.964042 millis
+     [java] 623.929355 millis
 
 run-sparse:
      [java] loading CMStateSet.class from bin/
      [java] validating test.xml with test-choice-assert.xsd
-     [java] 192.949404 millis
+     [java] 185.44768 millis
      [java] validating test.xml with test-choice.xsd
-     [java] 1618.323769 millis
+     [java] 1070.91905 millis
      [java] validating test.xml with test-sequence.xsd
-     [java] 7896.70078 millis
+     [java] 3505.011146 millis
 ```
